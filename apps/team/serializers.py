@@ -7,7 +7,9 @@ class RoleSerializer(serializers.ModelSerializer):
         model = Role
         fields = [
             "id",
-            "name",
+            "name_uz",
+            "name_ru",
+            "name_en",
             "created_at",
             "updated_at",
         ]
@@ -23,12 +25,18 @@ class TeamMemberSerializer(serializers.ModelSerializer):
         model = TeamMember
         fields = [
             "id",
-            "first_name",
-            "last_name",
+            "first_name_uz",
+            "first_name_ru",
+            "first_name_en",
+            "last_name_uz",
+            "last_name_ru",
+            "last_name_en",
             "slug",
             "role",
             "role_id",
-            "bio",
+            "bio_uz",
+            "bio_ru",
+            "bio_en"
             "photo",
             "email",
             "linkedin_url",
