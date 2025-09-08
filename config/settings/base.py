@@ -128,7 +128,6 @@ SPECTACULAR_SETTINGS = {
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 #leaguages
-LANGUAGE_CODE = "uz"
 
 LANGUAGES = [
     ('en', _('English')),
