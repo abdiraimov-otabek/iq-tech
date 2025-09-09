@@ -36,7 +36,7 @@ class TeamMemberSerializer(serializers.ModelSerializer):
             "role_id",
             "bio_uz",
             "bio_ru",
-            "bio_en"
+            "bio_en",
             "photo",
             "email",
             "linkedin_url",
