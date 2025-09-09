@@ -15,6 +15,8 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
+CSRF_TRUSTED_ORIGINS = os.getenv("CRF_TRUSTED_ORIGINS",)
+
 # Installed apps
 INSTALLED_APPS = [
     "unfold",
