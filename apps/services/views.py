@@ -1,9 +1,9 @@
-from rest_framework import viewsets
+from rest_framework import generics
 
 from apps.services.models import Service
 from apps.services.serializers import ServiceSerializer
 
 
-class ServicesViewSet(viewsets.ModelViewSet):
+class ServicesViewList(generics.ListAPIView):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer

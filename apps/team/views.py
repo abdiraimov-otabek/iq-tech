@@ -1,9 +1,9 @@
-from rest_framework import viewsets
+from rest_framework import generics
 
 from apps.team.models import TeamMember
 from apps.team.serializers import TeamMemberSerializer
 
 
-class TeamMembersViewSet(viewsets.ModelViewSet):
+class TeamMembersViewList(generics.ListAPIView):
     queryset = TeamMember.objects.all()
     serializer_class = TeamMemberSerializer

@@ -1,11 +1,8 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 
-from .views import TechnologyViewSet
+from .views import TechnologyViewList
 
-router = DefaultRouter()
-router.register(r"technologies", TechnologyViewSet, basename="technology")
 
 urlpatterns = [
-    path("", include(router.urls))
+    path("", TechnologyViewList.as_view(), name="technology")
 ]

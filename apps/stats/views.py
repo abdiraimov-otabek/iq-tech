@@ -1,9 +1,9 @@
-from rest_framework import viewsets
+from rest_framework import generics
 
 from apps.stats.models import Statistics
 from apps.stats.serializers import StatisticsSerializer
 
 
-class StatisticViewSet(viewsets.ModelViewSet):
+class StatisticViewList(generics.ListAPIView):
     queryset = Statistics.objects.all()
     serializer_class = StatisticsSerializer

@@ -1,11 +1,7 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 
-from .views import TeamMembersViewSet
-
-router = DefaultRouter()
-router.register(r"team_members", TeamMembersViewSet, basename="team_member")
+from .views import TeamMembersViewList
 
 urlpatterns = [
-    path("", include(router.urls))
+    path("", TeamMembersViewList.as_view(), name="team_members")
 ]

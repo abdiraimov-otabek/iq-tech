@@ -1,10 +1,9 @@
-from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import generics
 
 from apps.technology.models import Technology
 from apps.technology.serializers import TechnologySerializer
 
 
-class TechnologyViewSet(viewsets.ModelViewSet):
-    queryset = Technology
+class TechnologyViewList(generics.ListAPIView):
+    queryset = Technology.objects.all()
     serializer_class = TechnologySerializer
