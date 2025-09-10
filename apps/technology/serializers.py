@@ -8,5 +8,7 @@ class TechnologySerializer(serializers.ModelSerializer):
         model = Technology
         fields = [
             'id',
-            'name'
+            'name_uz',
+            'name_ru',
+            'name_en'
         ]
