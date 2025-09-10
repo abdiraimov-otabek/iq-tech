@@ -17,8 +17,7 @@ class Role(models.Model):
 
 
 class TeamMember(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    full_name = models.CharField(max_length=120)
     slug = models.SlugField(max_length=120, unique=True, blank=True)
     role = models.ForeignKey(
         Role, on_delete=models.SET_NULL, null=True, related_name="team_members"
@@ -35,19 +34,8 @@ class TeamMember(models.Model):
     class Meta:
         verbose_name = "Team Member"
         verbose_name_plural = "Team Members"
-        ordering = ["last_name", "first_name"]
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            base_slug = slugify(f"{self.first_name} {self.last_name}")
-            slug = base_slug
-            num = 1
-            while TeamMember.objects.filter(slug=slug).exclude(pk=self.pk).exists():
-                slug = f"{base_slug}-{num}"
-                num += 1
-            self.slug = slug
-        super().save(*args, **kwargs)
+        ordering = ["full_name"]
 
     def __str__(self):
         role_name = self.role.name if self.role else "No Role"
-        return f"{self.first_name} {self.last_name} ({role_name})"
+        return f"{self.full_name}({role_name})"

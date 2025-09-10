@@ -10,7 +10,6 @@ class RoleTranslationOptions(TranslationOptions):
 @register(TeamMember)
 class TeamMemberTranslationOptions(TranslationOptions):
     fields = (
-        "first_name",
-        "last_name",
+        "full_name",
         "bio"
     )

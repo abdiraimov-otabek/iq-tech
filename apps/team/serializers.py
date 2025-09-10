@@ -25,12 +25,9 @@ class TeamMemberSerializer(serializers.ModelSerializer):
         model = TeamMember
         fields = [
             "id",
-            "first_name_uz",
-            "first_name_ru",
-            "first_name_en",
-            "last_name_uz",
-            "last_name_ru",
-            "last_name_en",
+            "full_name_uz",
+            "full_name_ru",
+            "full_name_en",
             "slug",
             "role",
             "role_id",
