@@ -14,7 +14,7 @@ class Project(models.Model):
     ]
 
     title = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=100)
+    slug = models.SlugField(max_length=100, unique=True)
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to="projects/images/", blank=True, null=True)
     demo_url = models.URLField(max_length=300, blank=True)
