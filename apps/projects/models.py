@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
+from apps.team.models import TeamMember
 from apps.technology.models import Technology
 
 User = get_user_model()
@@ -19,7 +20,7 @@ class Project(models.Model):
     image = models.ImageField(upload_to="projects/images/", blank=True, null=True)
     demo_url = models.URLField(max_length=300, blank=True)
     tech_stack = models.ManyToManyField(Technology, blank=True)
-    team = models.ManyToManyField(User, related_name="projects", blank=True)
+    team = models.ManyToManyField(TeamMember, related_name="projects", blank=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="planning")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
