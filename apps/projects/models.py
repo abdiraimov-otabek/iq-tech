@@ -1,10 +1,8 @@
 from django.db import models
-from django.contrib.auth import get_user_model
 
 from apps.team.models import TeamMember
 from apps.technology.models import Technology
 
-User = get_user_model()
 
 class Project(models.Model):
     STATUS_CHOICES = [
