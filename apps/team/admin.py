@@ -32,6 +32,7 @@ class TeamMemberAdmin(ModelAdmin):
     )
     readonly_fields = ("created_at", "updated_at", "slug")
     ordering = ["full_name"]
+    prepopulated_fields = {"slug": ("title",)}
     formfield_overrides = {
         models.TextField: {
             "widget": WysiwygWidget,
