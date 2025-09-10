@@ -1,5 +1,8 @@
+from django.db import models
 from unfold.admin import ModelAdmin
 from django.contrib import admin
+from unfold.contrib.forms.widgets import WysiwygWidget
+
 from .models import Project
 
 
@@ -16,6 +19,12 @@ class ProjectAdmin(ModelAdmin):
     filter_horizontal = ("tech_stack", "team")
     readonly_fields = ("created_at", "updated_at")
     ordering = ("-created_at",)
+    formfield_overrides = {
+        models.TextField: {
+            "widget": WysiwygWidget,
+        }
+    }
+
 
 
 
