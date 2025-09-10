@@ -18,7 +18,7 @@ class Role(models.Model):
 
 class TeamMember(models.Model):
     full_name = models.CharField(max_length=120)
-    slug = models.SlugField(max_length=120, unique=True, blank=True)
+    slug = models.SlugField(max_length=120)
     role = models.ForeignKey(
         Role, on_delete=models.SET_NULL, null=True, related_name="team_members"
     )
