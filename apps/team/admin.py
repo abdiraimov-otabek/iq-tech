@@ -1,5 +1,8 @@
+from django.db import models
 from unfold.admin import ModelAdmin
 from django.contrib import admin
+from unfold.contrib.forms.widgets import WysiwygWidget
+
 from .models import Role, TeamMember
 
 
@@ -31,3 +34,8 @@ class TeamMemberAdmin(ModelAdmin):
     )
     readonly_fields = ("created_at", "updated_at", "slug")
     ordering = ("last_name", "first_name")
+    formfield_overrides = {
+        models.TextField: {
+            "widget": WysiwygWidget,
+        }
+    }
