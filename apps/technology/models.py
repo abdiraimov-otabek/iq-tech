@@ -2,6 +2,7 @@ from django.db import models
 
 class Technology(models.Model):
     name = models.CharField(max_length=50, unique=True)
+    icon = models.FileField(upload_to="technology/icons/")
 
     class Meta:
         verbose_name = "Technology"

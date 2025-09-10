@@ -10,5 +10,6 @@ class TechnologySerializer(serializers.ModelSerializer):
             'id',
             'name_uz',
             'name_ru',
-            'name_en'
+            'name_en',
+            'icon'
         ]
