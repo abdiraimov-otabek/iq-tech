@@ -1,5 +1,7 @@
 from django.db import models
 
+from apps.team.models import TeamMember
+
 
 class BlogCategory(models.Model):
     name = models.CharField(max_length=64, unique=True)
@@ -26,7 +28,7 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
-        "auth.User", on_delete=models.CASCADE, related_name="blog_posts"
+        TeamMember, on_delete=models.CASCADE, related_name="blog_posts"
     )
     category = models.ForeignKey(
         BlogCategory, on_delete=models.SET_NULL, null=True, related_name="posts"
