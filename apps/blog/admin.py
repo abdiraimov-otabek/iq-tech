@@ -41,7 +41,7 @@ class BlogCategoryAdmin(ModelAdmin):
 @admin.register(BlogPost)
 class BlogPostAdmin(ModelAdmin):
     list_display = (
-        "title",
+        "title_uz",
         "author",
         "category",
         "status",
@@ -50,8 +50,8 @@ class BlogPostAdmin(ModelAdmin):
         "created_at",
     )
     list_filter = ("status", "is_featured", "category", "author")
-    search_fields = ("title", "slug", "content")
-    prepopulated_fields = {"slug": ("title",)}
+    search_fields = ("title_uz", "slug", "content")
+    prepopulated_fields = {"slug": ("title_uz",)}
     date_hierarchy = "published_at"
     ordering = ("-published_at", "-created_at")
     autocomplete_fields = ("author", "category")
