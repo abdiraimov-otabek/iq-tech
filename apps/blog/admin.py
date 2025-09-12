@@ -35,18 +35,6 @@ class BlogCategoryAdmin(ModelAdmin):
     search_fields = ("name_uz", "slug")
     prepopulated_fields = {"slug": ("name_uz",)}
     ordering = ("name_uz",)
-    fields = [
-        "id",
-        "name_uz",
-        "name_ru",
-        "name_en",
-        "slug",
-        "description_uz",
-        "description_ru",
-        "description_en",
-        "created_at",
-    ]
-
 
 @admin.register(BlogPost)
 class BlogPostAdmin(ModelAdmin):
@@ -72,21 +60,3 @@ class BlogPostAdmin(ModelAdmin):
             "widget": WysiwygWidget,
         }
     }
-    fields = [
-        "id",
-        "title_uz",
-        "title_ru",
-        "title_en",
-        "slug",
-        "author",
-        "category",
-        "content_uz",
-        "content_ru",
-        "content_en",
-        "cover_image",
-        "status",
-        "is_featured",
-        "published_at",
-        "created_at",
-        "updated_at",
-    ]
