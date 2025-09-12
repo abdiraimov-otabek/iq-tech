@@ -130,7 +130,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # Internationalization
 LANGUAGE_CODE = "en"
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Tashkent"
 USE_I18N = True
 USE_TZ = True
 
