@@ -8,10 +8,10 @@ from .models import Role, TeamMember
 
 @admin.register(Role)
 class RoleAdmin(ModelAdmin):
-    list_display = ("name", "created_at", "updated_at")
-    search_fields = ("name",)
+    list_display = ("name_uz", "created_at", "updated_at")
+    search_fields = ("name_uz",)
     readonly_fields = ("created_at", "updated_at")
-    ordering = ("name",)
+    ordering = ("name_uz",)
 
 
 @admin.register(TeamMember)

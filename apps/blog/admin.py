@@ -34,7 +34,7 @@ class BlogCategoryAdmin(ModelAdmin):
     list_display = ("name_uz", "slug", "description_uz", "created_at")
     search_fields = ("name_uz", "slug")
     prepopulated_fields = {"slug": ("name_uz",)}
-    ordering = ("name_uz",)
+    ordering = ("name",)
 
 @admin.register(BlogPost)
 class BlogPostAdmin(ModelAdmin):
