@@ -18,7 +18,6 @@ class RoleAdmin(ModelAdmin):
 class TeamMemberAdmin(ModelAdmin):
     list_display = (
         "full_name_uz",
-        "role",
         "email",
         "is_active",
         "created_at",

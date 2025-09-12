@@ -19,8 +19,8 @@ class Role(models.Model):
 class TeamMember(models.Model):
     full_name = models.CharField(max_length=120)
     slug = models.SlugField(max_length=120, unique=True, blank=True)
-    role = models.ForeignKey(
-        Role, on_delete=models.SET_NULL, null=True, related_name="team_members"
+    role = models.ManyToManyField(
+        Role, related_name="team_members"
     )
     bio = models.TextField(blank=True)
     photo = models.ImageField(upload_to="team/photos/", blank=True, null=True)
