@@ -25,6 +25,23 @@ class ProjectAdmin(ModelAdmin):
             "widget": WysiwygWidget,
         }
     }
+    fields = [
+        "id",
+        "title_uz",
+        "title_ru",
+        "title_en",
+        "slug",
+        "description_uz",
+        "description_ru",
+        "description_en",
+        "image",
+        "demo_url",
+        "tech_stack",
+        "team",
+        "status",
+        "created_at",
+        "updated_at",
+    ]
 
 
 

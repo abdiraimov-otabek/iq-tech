@@ -1,6 +1,5 @@
-from unfold.admin import ModelAdmin
+from django.db import models
 from unfold.contrib.forms.widgets import WysiwygWidget
-from django.contrib import admin
 from .models import BlogCategory, BlogPost
 
 
@@ -32,10 +31,21 @@ class GroupAdmin(BaseGroupAdmin, ModelAdmin):
 
 @admin.register(BlogCategory)
 class BlogCategoryAdmin(ModelAdmin):
-    list_display = ("name", "slug", "description", "created_at")
-    search_fields = ("name", "slug")
-    prepopulated_fields = {"slug": ("name",)}
-    ordering = ("name",)
+    list_display = ("name_uz", "slug", "description_uz", "created_at")
+    search_fields = ("name_uz", "slug")
+    prepopulated_fields = {"slug": ("name_uz",)}
+    ordering = ("name_uz",)
+    fields = [
+        "id",
+        "name_uz",
+        "name_ru",
+        "name_en",
+        "slug",
+        "description_uz",
+        "description_ru",
+        "description_en",
+        "created_at",
+    ]
 
 
 @admin.register(BlogPost)
@@ -58,5 +68,25 @@ class BlogPostAdmin(ModelAdmin):
     readonly_fields = ("created_at", "updated_at")
 
     formfield_overrides = {
-        BlogPost._meta.get_field("content").__class__: {"widget": WysiwygWidget},
+        models.TextField: {
+            "widget": WysiwygWidget,
+        }
     }
+    fields = [
+        "id",
+        "title_uz",
+        "title_ru",
+        "title_en",
+        "slug",
+        "author",
+        "category",
+        "content_uz",
+        "content_ru",
+        "content_en",
+        "cover_image",
+        "status",
+        "is_featured",
+        "published_at",
+        "created_at",
+        "updated_at",
+    ]

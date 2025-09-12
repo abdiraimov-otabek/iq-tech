@@ -37,3 +37,22 @@ class TeamMemberAdmin(ModelAdmin):
             "widget": WysiwygWidget,
         }
     }
+    fields = [
+        "id",
+        "full_name_uz",
+        "full_name_ru",
+        "full_name_en",
+        "slug",
+        "role",
+        "role_id",
+        "bio_uz",
+        "bio_ru",
+        "bio_en",
+        "photo",
+        "email",
+        "linkedin_url",
+        "github_url",
+        "is_active",
+        "created_at",
+        "updated_at",
+    ]

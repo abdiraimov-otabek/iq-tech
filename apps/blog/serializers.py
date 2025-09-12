@@ -7,9 +7,13 @@ class BlogCategorySerializer(serializers.ModelSerializer):
         model = BlogCategory
         fields = [
             "id",
-            "name",
+            "name_uz",
+            "name_ru",
+            "name_en",
             "slug",
-            "description",
+            "description_uz",
+            "description_ru",
+            "description_en",
             "created_at",
         ]
 
@@ -22,11 +26,15 @@ class BlogPostSerializer(serializers.ModelSerializer):
         model = BlogPost
         fields = [
             "id",
-            "title",
+            "title_uz",
+            "title_ru",
+            "title_en",
             "slug",
             "author",
             "category",
-            "content",
+            "content_uz",
+            "content_ru",
+            "content_en",
             "cover_image",
             "status",
             "is_featured",
