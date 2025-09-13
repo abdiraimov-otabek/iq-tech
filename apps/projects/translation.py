@@ -7,3 +7,5 @@ class ProjectTranslationOptions(TranslationOptions):
         "title",
         "description"
     )
+
+

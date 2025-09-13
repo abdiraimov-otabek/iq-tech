@@ -1,4 +1,5 @@
 from django.db import models
+from modeltranslation.admin import TranslationAdmin
 from unfold.contrib.forms.widgets import WysiwygWidget
 from .models import BlogCategory, BlogPost
 
@@ -31,15 +32,15 @@ class GroupAdmin(BaseGroupAdmin, ModelAdmin):
 
 @admin.register(BlogCategory)
 class BlogCategoryAdmin(ModelAdmin):
-    list_display = ("name_uz", "slug", "description_uz", "created_at")
-    search_fields = ("name_uz", "slug")
-    prepopulated_fields = {"slug": ("name_uz",)}
+    list_display = ("name", "slug", "description_uz", "created_at")
+    search_fields = ("name", "slug")
+    prepopulated_fields = {"slug": ("name",)}
     ordering = ("name",)
 
 @admin.register(BlogPost)
 class BlogPostAdmin(ModelAdmin):
     list_display = (
-        "title_uz",
+        "title",
         "author",
         "category",
         "status",
@@ -48,8 +49,8 @@ class BlogPostAdmin(ModelAdmin):
         "created_at",
     )
     list_filter = ("status", "is_featured", "category", "author")
-    search_fields = ("title_uz", "slug", "content")
-    prepopulated_fields = {"slug": ("title_uz",)}
+    search_fields = ("title", "slug", "content")
+    prepopulated_fields = {"slug": ("title",)}
     date_hierarchy = "published_at"
     ordering = ("-published_at", "-created_at")
     autocomplete_fields = ("author", "category")

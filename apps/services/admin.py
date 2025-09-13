@@ -1,3 +1,4 @@
+from modeltranslation.admin import TranslationAdmin
 from unfold.admin import ModelAdmin
 from django.contrib import admin
 from .models import Service
