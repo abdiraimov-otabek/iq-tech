@@ -39,10 +39,11 @@ INSTALLED_APPS = [
     "apps.team",
     "apps.projects",
     "apps.services",
-    "apps.stats.apps.StatsConfig",
+    "apps.stats",
     "apps.contact",
     "apps.blog",
-    "apps.technology"
+    "apps.technology",
+    "apps.partners",
 ]
 
 MIDDLEWARE = [
