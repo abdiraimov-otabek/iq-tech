@@ -27,3 +27,7 @@ class Reviews(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.profession}"
+
+    class Meta:
+        verbose_name = "review"
+        verbose_name_plural = "reviews"
