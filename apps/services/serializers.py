@@ -10,6 +10,7 @@ class ServiceSerializer(serializers.ModelSerializer):
             "title_uz",
             "title_ru",
             "title_en",
+            "slug"
             "description_uz",
             "description_ru",
             "description_en",

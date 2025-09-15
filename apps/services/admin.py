@@ -10,3 +10,5 @@ class ServiceAdmin(ModelAdmin):
     search_fields = ("title", "description")
     readonly_fields = ("created_at", "updated_at")
     ordering = ("-created_at",)
+    prepopulated_fields = {"slug": ("title",)}
+
