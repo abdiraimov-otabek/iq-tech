@@ -1,3 +1,5 @@
+from . import translation
+
 from django.db import models
 from modeltranslation.admin import TranslationAdmin
 from unfold.admin import ModelAdmin
@@ -8,7 +10,7 @@ from .models import Project
 
 
 @admin.register(Project)
-class ProjectAdmin(ModelAdmin):
+class ProjectAdmin(TranslationAdmin, ModelAdmin):
     list_display = (
         "title",
         "status",

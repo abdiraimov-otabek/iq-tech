@@ -1,3 +1,4 @@
+from . import translation
 from modeltranslation.admin import TranslationAdmin
 
 from unfold.admin import ModelAdmin
@@ -27,7 +28,7 @@ class StatisticsAdmin(ModelAdmin):
     ordering = ("-updated_at",)
 
 @admin.register(Reviews)
-class ReviewsAdmin(ModelAdmin):
+class ReviewsAdmin(TranslationAdmin, ModelAdmin):
     list_display = (
         "name",
         "profession",

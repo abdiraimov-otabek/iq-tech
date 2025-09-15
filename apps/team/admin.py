@@ -1,3 +1,5 @@
+from . import translation
+
 from django.db import models
 from modeltranslation.admin import TranslationAdmin
 from unfold.admin import ModelAdmin
@@ -8,7 +10,7 @@ from .models import Role, TeamMember
 
 
 @admin.register(Role)
-class RoleAdmin(ModelAdmin):
+class RoleAdmin(TranslationAdmin, ModelAdmin):
     list_display = ("name", "created_at", "updated_at")
     search_fields = ("name",)
     readonly_fields = ("created_at", "updated_at")
@@ -16,7 +18,7 @@ class RoleAdmin(ModelAdmin):
 
 
 @admin.register(TeamMember)
-class TeamMemberAdmin(ModelAdmin):
+class TeamMemberAdmin(TranslationAdmin, ModelAdmin):
     list_display = (
         "full_name",
         "email",
