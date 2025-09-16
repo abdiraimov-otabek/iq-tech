@@ -17,7 +17,7 @@ class RoleSerializer(serializers.ModelSerializer):
 
 class TeamMemberSerializer(serializers.ModelSerializer):
     role = RoleSerializer(many=True, read_only=True)
-    role_id = serializers.PrimaryKeyRelatedField(
+    role_ids = serializers.PrimaryKeyRelatedField(
         many=True, queryset=Role.objects.all(), source="role", write_only=True, required=False
     )
 
