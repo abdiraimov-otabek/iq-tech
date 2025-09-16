@@ -16,9 +16,9 @@ class RoleSerializer(serializers.ModelSerializer):
 
 
 class TeamMemberSerializer(serializers.ModelSerializer):
-    role = RoleSerializer(read_only=True)
+    role = RoleSerializer(many=True, read_only=True)
     role_id = serializers.PrimaryKeyRelatedField(
-        queryset=Role.objects.all(), source="role", write_only=True, required=False
+        many=True, queryset=Role.objects.all(), source="role", write_only=True, required=False
     )
 
     class Meta:
@@ -30,7 +30,7 @@ class TeamMemberSerializer(serializers.ModelSerializer):
             "full_name_en",
             "slug",
             "role",
-            "role_id",
+            "role_ids",
             "bio_uz",
             "bio_ru",
             "bio_en",

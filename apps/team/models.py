@@ -37,20 +37,14 @@ class TeamMember(models.Model):
         ordering = ["full_name"]
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            base_slug = slugify(self.full_name)
-            slug = base_slug
-            counter = 1
-            while TeamMember.objects.filter(slug=slug).exists():
-                slug = f"{base_slug}-{counter}"
-                counter += 1
-            self.slug = slug
+        base_slug = slugify(self.full_name)
+        slug = base_slug
+        counter = 1
+        while TeamMember.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+            slug = f"{base_slug}-{counter}"
+            counter += 1
+        self.slug = slug
         super().save(*args, **kwargs)
 
     def __str__(self):
-        roles = self.role.all()
-        if roles.exists():
-            role_names = ", ".join([r.name for r in roles])
-        else:
-            role_names = "No Role"
-        return f"{self.full_name}({role_names})"
+        return self.full_name
