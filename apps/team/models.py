@@ -48,5 +48,9 @@ class TeamMember(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        role_name = self.role.name if self.role else "No Role"
-        return f"{self.full_name}({role_name})"
+        roles = self.role.all()
+        if roles.exists():
+            role_names = ", ".join([r.name for r in roles])
+        else:
+            role_names = "No Role"
+        return f"{self.full_name}({role_names})"
