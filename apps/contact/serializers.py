@@ -14,7 +14,7 @@ class ContactSerializer(serializers.ModelSerializer):
             "request",
         ]
 
-    def validate(self, value):
-        if not value.strip():
-            raise serializers.ValidationError(_("Title bo‘sh bo‘lishi mumkin emas"))
-        return value
+    def validate(self, attrs):
+        if not attrs.get("name") and not attrs.get("phone_number"):
+            raise serializers.ValidationError(_("Нужно заполнить хотя бы имя или телефон"))
+        return attrs
