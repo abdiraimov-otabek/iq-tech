@@ -24,3 +24,4 @@ class TeamMemberAdmin(TranslationAdmin, ModelAdmin):
     readonly_fields = ("created_at", "updated_at", "slug_uz")
     prepopulated_fields = {"slug_uz": ("full_name_uz",)}
     formfield_overrides = {models.TextField: {"widget": WysiwygWidget}}
+
