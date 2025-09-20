@@ -5,6 +5,5 @@ from .models import Reviews
 class ReviewsTranslationOptions(TranslationOptions):
     fields = (
         "name",
-        "profession",
         "content"
     )

@@ -20,8 +20,6 @@ class Statistics(models.Model):
 class Reviews(models.Model):
     name = models.CharField(max_length=100)
     content = models.TextField()
-    image = models.ImageField(upload_to="reviews/images/")
-    profession = models.CharField(max_length=150)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

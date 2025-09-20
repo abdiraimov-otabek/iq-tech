@@ -24,13 +24,9 @@ class ReviewSerializer(serializers.ModelSerializer):
             "name_uz",
             "name_ru",
             "name_en",
-            "image",
             "content_uz",
             "content_ru",
             "content_en",
-            "profession_uz",
-            "profession_ru",
-            "profession_en",
             "created_at",
             "updated_at",
         ]

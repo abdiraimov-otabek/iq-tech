@@ -31,13 +31,11 @@ class StatisticsAdmin(ModelAdmin):
 class ReviewsAdmin(TranslationAdmin, ModelAdmin):
     list_display = (
         "name",
-        "profession",
         "created_at",
         "updated_at",
     )
     search_fields = (
         "name",
-        "profession"
     )
     readonly_fields = ("created_at", "updated_at")
     ordering = ("-updated_at",)
