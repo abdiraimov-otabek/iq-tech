@@ -24,7 +24,7 @@ class Reviews(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.name} - {self.profession}"
+        return f"{self.name}"
 
     class Meta:
         verbose_name = "review"

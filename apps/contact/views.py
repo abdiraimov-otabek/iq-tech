@@ -33,8 +33,14 @@ class ContactCreateView(generics.CreateAPIView):
 
         try:
             response = requests.post(url, json=payload, timeout=10)
-            response.raise_for_status()  # HTTP xatolarni ko‘rsatadi
+            response.raise_for_status()
         except requests.exceptions.HTTPError as http_err:
             print(f"Telegram HTTP xato: {http_err} - {response.text}")
         except requests.exceptions.RequestException as err:
             print(f"Telegram so‘rov xato: {err}")
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        return Response({"message": "Ariza muvaffaqiyatli yuborildi"}, status=status.HTTP_201_CREATED)
