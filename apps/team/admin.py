@@ -19,9 +19,9 @@ class RoleAdmin(TranslationAdmin, ModelAdmin):
 
 @admin.register(TeamMember)
 class TeamMemberAdmin(TranslationAdmin, ModelAdmin):
-    list_display = ("full_name_uz", "email", "slug_uz", "is_active", "created_at", "updated_at")
-    search_fields = ("full_name_uz", "email", "role__name")
-    readonly_fields = ("created_at", "updated_at", "slug_uz")
-    prepopulated_fields = {"slug_uz": ("full_name_uz",)}
+    list_display = ("full_name", "email", "slug", "is_active", "created_at", "updated_at")
+    search_fields = ("full_name", "email", "role__name")
+    readonly_fields = ("created_at", "updated_at", "slug")
+    prepopulated_fields = {"slug": ("full_name",)}
     formfield_overrides = {models.TextField: {"widget": WysiwygWidget}}
 
