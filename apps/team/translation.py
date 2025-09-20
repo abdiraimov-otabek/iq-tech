@@ -12,5 +12,4 @@ class TeamMemberTranslationOptions(TranslationOptions):
     fields = (
         "full_name",
         "bio",
-        "slug"
     )
