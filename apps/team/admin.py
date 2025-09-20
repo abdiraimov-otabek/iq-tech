@@ -33,7 +33,7 @@ class TeamMemberAdmin(TranslationAdmin, ModelAdmin):
         "role__name",
     )
     readonly_fields = ("created_at", "updated_at", "slug")
-    ordering = ["full_name"]
+    ordering = ["-created_at"]
     formfield_overrides = {
         models.TextField: {
             "widget": WysiwygWidget,

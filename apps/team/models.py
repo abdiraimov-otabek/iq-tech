@@ -34,7 +34,7 @@ class TeamMember(models.Model):
     class Meta:
         verbose_name = "Team Member"
         verbose_name_plural = "Team Members"
-        ordering = ["full_name"]
+        ordering = ["-created_at"]
 
     def save(self, *args, **kwargs):
         base_slug = slugify(self.full_name)
