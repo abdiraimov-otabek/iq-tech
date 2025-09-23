@@ -6,8 +6,15 @@ from unfold.admin import ModelAdmin
 from django.contrib import admin
 from unfold.contrib.forms.widgets import WysiwygWidget
 
-from .models import Project
+from .models import Project, ProjectCategory
 
+
+@admin.register(ProjectCategory)
+class ProjectCategoryAdmin(TranslationAdmin, ModelAdmin):
+    list_display = (
+        "id",
+        "name"
+    )
 
 @admin.register(Project)
 class ProjectAdmin(TranslationAdmin, ModelAdmin):
