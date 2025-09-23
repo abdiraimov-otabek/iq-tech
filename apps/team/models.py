@@ -20,7 +20,7 @@ class TeamMember(models.Model):
     full_name = models.CharField(max_length=120)
     slug = models.SlugField(max_length=120, unique=True, blank=True)
     role = models.ManyToManyField(
-        Role, related_name="team_members"
+        Role, blank=True, related_name="team_members"
     )
     bio = models.TextField(blank=True)
     photo = models.ImageField(upload_to="team/photos/", blank=True, null=True)
