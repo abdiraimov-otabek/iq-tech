@@ -26,9 +26,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = [
             "id",
-            "title_uz",
-            "title_ru",
-            "title_en",
+            "title",
             "slug",
             "description_uz",
             "description_ru",
