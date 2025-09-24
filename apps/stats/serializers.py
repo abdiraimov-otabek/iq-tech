@@ -24,6 +24,7 @@ class ReviewSerializer(serializers.ModelSerializer):
             "name_uz",
             "name_ru",
             "name_en",
+            "image",
             "content_uz",
             "content_ru",
             "content_en",
